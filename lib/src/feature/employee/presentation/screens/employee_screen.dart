@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../app/service/service.dart';
 import '../../../../app/theme/theme.dart';
@@ -27,9 +28,7 @@ class EmployeeScreen extends StatelessWidget {
             title: const Text('Employee List'),
             actions: [
               ElevatedButton.icon(
-                onPressed: () {
-                  // TODO: Implement Add Employee
-                },
+                onPressed: () => context.push('/create'),
                 label: Text(
                   'Add Employee',
                   style: AppTheme.theme.textTheme.displayMedium!.copyWith(

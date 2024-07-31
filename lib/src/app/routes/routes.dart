@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../feature/employee/presentation/screens/employee_screen.dart';
+import '../../feature/employee/presentation/screens/new_employee_screen.dart';
 
 class AppRouter {
   static GoRouter router = GoRouter(
@@ -12,6 +13,13 @@ class AppRouter {
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
           child: const EmployeeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: "/create",
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const NewEmployeeScreen(),
         ),
       ),
     ],
