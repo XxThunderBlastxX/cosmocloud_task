@@ -39,6 +39,7 @@ dependencies:
   go_router: ^14.2.1
   equatable: ^2.0.5
   logger: ^2.4.0
+  parse_json: ^2.2.4
 
 dev_dependencies:
   flutter_test:
