@@ -1,6 +1,8 @@
 import 'package:parse_json/parse_json.dart';
 
-final class Employee {
+import '../../../app/utils/to_json.dart';
+
+final class Employee with ToJson {
   final String? id;
   final String name;
   final Address address;
@@ -19,9 +21,19 @@ final class Employee {
         "address": Address.fromJson.required,
         "contactMethods": ContactMethod.fromJson.required,
       });
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'address': address.toJson(),
+      'contactMethods': contactMethods.toJson(),
+    };
+  }
 }
 
-final class Address {
+final class Address with ToJson {
   final String street;
   final String city;
   final String country;
@@ -40,6 +52,16 @@ final class Address {
         "country": string,
         "zip": string,
       });
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'street': street,
+      'city': city,
+      'country': country,
+      'zip': zip,
+    };
+  }
 }
 
 enum ContactMethodType {
@@ -51,9 +73,14 @@ enum ContactMethodType {
         'email' => ContactMethodType.email,
         _ => throw Exception('Unknown enum value')
       };
+
+  String toJson() => switch (this) {
+        ContactMethodType.phone => 'phone',
+        ContactMethodType.email => 'email',
+      };
 }
 
-final class ContactMethod {
+final class ContactMethod with ToJson {
   final ContactMethodType contactMethods;
   final String value;
 
@@ -67,4 +94,12 @@ final class ContactMethod {
         "contactMethods": ContactMethodType.fromJson.required,
         "value": string,
       });
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'contactMethods': contactMethods.toJson(),
+      'value': value,
+    };
+  }
 }
