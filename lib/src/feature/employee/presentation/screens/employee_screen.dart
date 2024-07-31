@@ -65,10 +65,11 @@ class EmployeeScreen extends StatelessWidget {
                       title: Text(employees[idx].name),
                       subtitle: Text("ID: ${employees[idx].id}"),
                       trailing: IconButton(
-                          icon: const Icon(Icons.delete),
-                          onPressed: () {
-                            // TODO: Implement Delete Employee
-                          }),
+                        icon: const Icon(Icons.delete),
+                        onPressed: () => context
+                            .read<EmployeeBloc>()
+                            .add(DeleteEmployeeEvent(employees[idx].id!)),
+                      ),
                     ),
                   ),
                 ),

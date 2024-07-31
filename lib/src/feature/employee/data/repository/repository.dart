@@ -22,7 +22,6 @@ final class EmployeeRepository implements IEmployee {
   Future<Failure?> createEmployee(Employee employee) async {
     try {
       _log.i('Creating employee 🐥');
-      _log.i(jsonEncode(employee.toJson()));
 
       final response = await _dio.post(
         '/employee',
@@ -55,6 +54,7 @@ final class EmployeeRepository implements IEmployee {
 
       final response = await _dio.delete(
         '/employee/$id',
+        data: jsonEncode({}),
       );
 
       if (response.statusCode == 200) {
