@@ -11,14 +11,17 @@ class NewEmployeeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('New Employee'),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: MediaQuery.sizeOf(context).width * 0.9,
-            child: AddEmployeeForm(),
-          ),
-        ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width * 0.9,
+              child: const AddEmployeeForm(),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -4,7 +4,7 @@ part 'employee_model.g.dart';
 
 @JsonSerializable()
 final class Employee {
-  @JsonKey(name: '_id')
+  @JsonKey(name: '_id', includeFromJson: true, includeToJson: false)
   final String? id;
 
   final String name;

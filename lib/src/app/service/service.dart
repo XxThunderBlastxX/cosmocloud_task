@@ -12,6 +12,8 @@ void serviceLocator() {
   service.registerSingleton(Dio(BaseOptions(
     baseUrl: Env.cosmocloudBaseUrl,
     contentType: 'application/json',
+    receiveTimeout: const Duration(seconds: 10),
+    connectTimeout: const Duration(seconds: 5),
     headers: {
       'projectId': Env.cosmocloudProjectID,
       'environmentId': Env.cosmocloudEnvironmentId,

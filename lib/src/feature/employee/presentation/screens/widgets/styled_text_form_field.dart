@@ -1,9 +1,12 @@
-import 'package:cosmocloud_task/src/app/theme/theme.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../app/theme/theme.dart';
 
 class StyledTextFormField extends StatelessWidget {
   final String fieldName;
+
   final String hintText;
+
   final TextEditingController? controller;
 
   const StyledTextFormField({

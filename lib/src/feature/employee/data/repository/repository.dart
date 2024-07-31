@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -20,16 +22,18 @@ final class EmployeeRepository implements IEmployee {
   Future<Failure?> createEmployee(Employee employee) async {
     try {
       _log.i('Creating employee 🐥');
+      _log.i(jsonEncode(employee.toJson()));
+
       final response = await _dio.post(
         '/employee',
-        data: employee.toJson(),
+        data: jsonEncode(employee.toJson()),
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         _log.i('Employee created 🎉');
         return null;
       } else {
-        _log.e('Failed to create employee ☹');
+        _log.e('Failed to create employee ☹ \n ${response.data}');
         return const Failure(message: 'Failed to create employee');
       }
     } on DioException catch (err) {
