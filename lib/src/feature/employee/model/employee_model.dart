@@ -1,11 +1,16 @@
-import 'package:parse_json/parse_json.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-import '../../../app/utils/to_json.dart';
+part 'employee_model.g.dart';
 
-final class Employee with ToJson {
+@JsonSerializable()
+final class Employee {
+  @JsonKey(name: '_id')
   final String? id;
+
   final String name;
+
   final Address address;
+
   final ContactMethod contactMethods;
 
   const Employee({
@@ -15,91 +20,53 @@ final class Employee with ToJson {
     required this.contactMethods,
   });
 
-  factory Employee.fromJson(dynamic json) => parse(Employee.new, json, {
-        "id": string.optional,
-        "name": string,
-        "address": Address.fromJson.required,
-        "contactMethods": ContactMethod.fromJson.required,
-      });
+  factory Employee.fromJson(Map<String, dynamic> json) =>
+      _$EmployeeFromJson(json);
 
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'address': address.toJson(),
-      'contactMethods': contactMethods.toJson(),
-    };
-  }
+  Map<String, dynamic> toJson() => _$EmployeeToJson(this);
 }
 
-final class Address with ToJson {
-  final String street;
+@JsonSerializable()
+final class Address {
+  final String line1;
+
   final String city;
+
   final String country;
-  final String zip;
+
+  final String zipCode;
 
   const Address({
-    required this.street,
+    required this.line1,
     required this.city,
     required this.country,
-    required this.zip,
+    required this.zipCode,
   });
 
-  factory Address.fromJson(dynamic json) => parse(Address.new, json, {
-        "street": string,
-        "city": string,
-        "country": string,
-        "zip": string,
-      });
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
 
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'street': street,
-      'city': city,
-      'country': country,
-      'zip': zip,
-    };
-  }
+  Map<String, dynamic> toJson() => _$AddressToJson(this);
 }
 
+@JsonEnum()
 enum ContactMethodType {
   email,
   phone;
-
-  factory ContactMethodType.fromJson(dynamic json) => switch (json) {
-        'phone' => ContactMethodType.phone,
-        'email' => ContactMethodType.email,
-        _ => throw Exception('Unknown enum value')
-      };
-
-  String toJson() => switch (this) {
-        ContactMethodType.phone => 'phone',
-        ContactMethodType.email => 'email',
-      };
 }
 
-final class ContactMethod with ToJson {
-  final ContactMethodType contactMethods;
+@JsonSerializable()
+final class ContactMethod {
+  final ContactMethodType contactMethod;
   final String value;
 
   const ContactMethod({
-    required this.contactMethods,
+    required this.contactMethod,
     required this.value,
   });
 
-  factory ContactMethod.fromJson(dynamic json) =>
-      parse(ContactMethod.new, json, {
-        "contactMethods": ContactMethodType.fromJson.required,
-        "value": string,
-      });
+  factory ContactMethod.fromJson(Map<String, dynamic> json) =>
+      _$ContactMethodFromJson(json);
 
-  @override
-  Map<String, dynamic> toJson() {
-    return {
-      'contactMethods': contactMethods.toJson(),
-      'value': value,
-    };
-  }
+  Map<String, dynamic> toJson() => _$ContactMethodToJson(this);
 }

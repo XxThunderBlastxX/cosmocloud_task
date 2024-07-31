@@ -9,4 +9,7 @@ abstract class Env {
 
   @EnviedField(varName: 'COSMOCLOUD_ENVIRONMENT_ID')
   static String cosmocloudEnvironmentId = _Env.cosmocloudEnvironmentId;
+
+  @EnviedField(varName: 'COSMOCLOUD_BASE_URL')
+  static String cosmocloudBaseUrl = _Env.cosmocloudBaseUrl;
 }

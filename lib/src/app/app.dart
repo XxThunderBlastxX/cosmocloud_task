@@ -1,7 +1,7 @@
-import 'package:cosmocloud_task/src/app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'routes/routes.dart';
+import 'theme/theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

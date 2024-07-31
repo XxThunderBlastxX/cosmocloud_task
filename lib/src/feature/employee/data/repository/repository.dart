@@ -104,7 +104,7 @@ final class EmployeeRepository implements IEmployee {
     try {
       _log.i('Getting employees 🐥');
       final response = await _dio.get(
-        '/employee',
+        '/employee?limit=100&offset=0',
       );
 
       if (response.statusCode == 200) {
