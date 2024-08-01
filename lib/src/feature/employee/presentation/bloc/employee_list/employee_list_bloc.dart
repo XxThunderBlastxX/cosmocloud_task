@@ -17,21 +17,10 @@ class EmployeeListBloc extends Bloc<EmployeeEvent, EmployeeState> {
     on<GetAllEmployeeEvent>((event, emit) async {
       emit(const EmployeeListLoadingState());
 
-      final employees = await _employeeRepository.getEmployees();
+      final employees = await _employeeRepository.getAllEmployees();
 
       employees.fold(
         (employees) => emit(EmployeeList(employees)),
-        (failure) => emit(EmployeeListErrorState(failure)),
-      );
-    });
-
-    on<GetEmployeeEvent>((event, emit) async {
-      emit(const EmployeeListLoadingState());
-
-      final employee = await _employeeRepository.getEmployeeById(event.id);
-
-      employee.fold(
-        (employee) => emit(EmployeeList([employee])),
         (failure) => emit(EmployeeListErrorState(failure)),
       );
     });

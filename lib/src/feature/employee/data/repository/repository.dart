@@ -105,11 +105,15 @@ final class EmployeeRepository implements IEmployee {
   }
 
   @override
-  Future<Either<List<Employee>, Failure>> getEmployees() async {
+  Future<Either<List<Employee>, Failure>> getAllEmployees() async {
     try {
       _log.i('Getting employees 🐥');
       final response = await _dio.get(
-        '/employee?limit=100&offset=0',
+        '/employee',
+        queryParameters: {
+          'limit': 100,
+          'offset': 0,
+        },
       );
 
       if (response.statusCode == 200) {
