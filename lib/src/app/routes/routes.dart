@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../feature/employee/presentation/screens/employee_details_screen.dart';
-import '../../feature/employee/presentation/screens/employee_screen.dart';
+import '../../feature/employee/presentation/screens/employees_list_screen.dart';
 import '../../feature/employee/presentation/screens/new_employee_screen.dart';
 
 abstract class AppRouter {
@@ -13,7 +13,7 @@ abstract class AppRouter {
         path: "/",
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const EmployeeScreen(),
+          child: const EmployeesListScreen(),
         ),
       ),
       GoRoute(
