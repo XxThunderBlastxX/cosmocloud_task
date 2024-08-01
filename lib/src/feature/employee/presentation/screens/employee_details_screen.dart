@@ -1,3 +1,4 @@
+import 'package:cosmocloud_task/src/app/common/widgets/styled_divider.dart';
 import 'package:cosmocloud_task/src/app/error/error.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
@@ -47,11 +48,12 @@ class EmployeeDetailsScreen extends StatelessWidget {
                     'Name: ${employee.name}',
                     style: AppTheme.theme.textTheme.labelLarge,
                   ),
-                  const Divider(),
+                  const StyledDivider(),
                   Text(
                     'Address',
                     style: AppTheme.theme.textTheme.labelLarge,
                   ),
+                  const SizedBox(height: 8.0),
                   Text(
                     'Street: ${employee.address.line1}',
                     style: AppTheme.theme.textTheme.labelMedium,
@@ -68,11 +70,12 @@ class EmployeeDetailsScreen extends StatelessWidget {
                     'Zip Code: ${employee.address.zipCode}',
                     style: AppTheme.theme.textTheme.labelMedium,
                   ),
-                  const Divider(),
+                  const StyledDivider(),
                   Text(
                     'Contact Details',
                     style: AppTheme.theme.textTheme.labelLarge,
                   ),
+                  const SizedBox(height: 8.0),
                   Text(
                     'Contact Method: ${employee.contactMethods.contactMethod.name.capitalize()}',
                     style: AppTheme.theme.textTheme.labelMedium,

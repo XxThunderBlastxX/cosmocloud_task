@@ -9,8 +9,8 @@ class AppTheme {
       style: ButtonStyle(
         padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.symmetric(
-            horizontal: 18,
-            vertical: 12,
+            horizontal: 8,
+            vertical: 6,
           ),
         ),
         backgroundColor: WidgetStateProperty.all<Color>(
@@ -26,16 +26,16 @@ class AppTheme {
     fontFamily: GoogleFonts.dosis().fontFamily,
     textTheme: TextTheme(
       labelLarge: GoogleFonts.dosis(
-        fontSize: 20,
+        fontSize: 24,
         fontWeight: FontWeight.w500,
       ),
       labelMedium: GoogleFonts.dosis(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
+        fontSize: 20,
+        fontWeight: FontWeight.w300,
       ),
       labelSmall: GoogleFonts.dosis(
-        fontSize: 14,
-        fontWeight: FontWeight.w500,
+        fontSize: 15,
+        fontWeight: FontWeight.w300,
       ),
     ),
   );

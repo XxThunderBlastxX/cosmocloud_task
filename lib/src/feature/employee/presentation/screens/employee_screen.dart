@@ -16,17 +16,20 @@ class EmployeeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Employee List'),
         actions: [
-          ElevatedButton.icon(
-            onPressed: () => context.push('/create'),
-            label: Text(
-              'Add Employee',
-              style: AppTheme.theme.textTheme.displayMedium!.copyWith(
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: ElevatedButton.icon(
+              onPressed: () => context.push('/create'),
+              label: Text(
+                'Add Employee',
+                style: AppTheme.theme.textTheme.labelMedium!.copyWith(
+                  color: Colors.white,
+                ),
+              ),
+              icon: const Icon(
+                Icons.add,
                 color: Colors.white,
               ),
-            ),
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
             ),
           ),
         ],
@@ -62,8 +65,14 @@ class EmployeeScreen extends StatelessWidget {
                     itemCount: employees.length,
                     separatorBuilder: (context, _) => const Divider(),
                     itemBuilder: (context, idx) => ListTile(
-                      title: Text(employees[idx].name),
-                      subtitle: Text("ID: ${employees[idx].id}"),
+                      title: Text(
+                        employees[idx].name,
+                        style: AppTheme.theme.textTheme.labelMedium,
+                      ),
+                      subtitle: Text(
+                        "ID: ${employees[idx].id}",
+                        style: AppTheme.theme.textTheme.labelSmall,
+                      ),
                       onTap: () {
                         context
                             .read<EmployeeDetailsBloc>()

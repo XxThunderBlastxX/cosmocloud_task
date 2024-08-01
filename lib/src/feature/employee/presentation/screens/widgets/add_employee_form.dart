@@ -1,3 +1,4 @@
+import 'package:cosmocloud_task/src/app/common/widgets/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -86,14 +87,12 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
             hintText: 'Enter employee name',
             controller: _nameController,
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Divider(),
-          ),
+          const StyledDivider(),
           Text(
             'Address',
             style: AppTheme.theme.textTheme.labelLarge,
           ),
+          const SizedBox(height: 8.0),
           StyledTextFormField(
             fieldName: 'Street',
             hintText: 'Enter your street name',
@@ -114,14 +113,12 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
             hintText: 'Enter zip code',
             controller: _zipCodeController,
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Divider(),
-          ),
+          const StyledDivider(),
           Text(
             'Contact',
             style: AppTheme.theme.textTheme.labelLarge,
           ),
+          const SizedBox(height: 8.0),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
