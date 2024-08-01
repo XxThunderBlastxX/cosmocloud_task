@@ -14,7 +14,7 @@ void serviceLocator() {
     baseUrl: Env.cosmocloudBaseUrl,
     contentType: 'application/json',
     receiveTimeout: const Duration(seconds: 10),
-    connectTimeout: const Duration(seconds: 5),
+    connectTimeout: const Duration(seconds: 10),
     headers: {
       'projectId': Env.cosmocloudProjectID,
       'environmentId': Env.cosmocloudEnvironmentId,

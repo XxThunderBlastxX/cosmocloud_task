@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp.router(
           title: 'CosmoCloud Task',
           theme: AppTheme.theme,
+          debugShowCheckedModeBanner: false,
           routerDelegate: AppRouter.router.routerDelegate,
           routeInformationParser: AppRouter.router.routeInformationParser,
           routeInformationProvider: AppRouter.router.routeInformationProvider,

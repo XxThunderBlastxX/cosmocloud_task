@@ -125,7 +125,7 @@ final class EmployeeRepository implements IEmployee {
       _log.e('Error getting employees ☹ \n $err');
       return Right(Failure(
         message: err.message ?? "Something went wrong",
-        code: err.response!.statusCode ?? 500,
+        code: err.response?.statusCode ?? 500,
       ));
     } catch (err) {
       _log.e('Error getting employees ☹\n $err');

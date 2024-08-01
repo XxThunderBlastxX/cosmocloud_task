@@ -29,7 +29,7 @@ abstract class AppTheme {
       ),
       labelMedium: GoogleFonts.dosis(
         fontSize: 20,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w400,
       ),
       labelSmall: GoogleFonts.dosis(
         fontSize: 15,

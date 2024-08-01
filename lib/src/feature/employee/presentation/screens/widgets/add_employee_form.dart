@@ -179,7 +179,7 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
                 return 'Please enter zip code';
               } else if (value.length < 6) {
                 return 'Zip code must be 6 digits';
-              } else if (value.isInt) {
+              } else if (value.toInt().isNaN) {
                 return 'Zip code must be numeric';
               }
               return null;
