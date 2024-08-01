@@ -9,12 +9,24 @@ class StyledTextFormField extends StatelessWidget {
 
   final TextEditingController? controller;
 
+  final FocusNode? focusNode;
+
+  final TextInputType? keyboardType;
+
+  final String? Function(String?)? validator;
+
   final bool showLabel;
+
+  final bool lastField;
 
   const StyledTextFormField({
     super.key,
     this.controller,
+    this.focusNode,
+    this.keyboardType,
+    this.validator,
     this.showLabel = true,
+    this.lastField = false,
     required this.fieldName,
     required this.hintText,
   });
@@ -34,6 +46,12 @@ class StyledTextFormField extends StatelessWidget {
         ),
         TextFormField(
           controller: controller,
+          focusNode: focusNode,
+          keyboardType: keyboardType,
+          validator: validator,
+          onEditingComplete: () => focusNode?.nextFocus(),
+          onFieldSubmitted: (_) => lastField ? focusNode?.unfocus() : null,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
             hintText: hintText,
             border: OutlineInputBorder(
