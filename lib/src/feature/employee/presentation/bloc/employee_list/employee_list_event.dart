@@ -1,4 +1,4 @@
-part of 'employee_bloc.dart';
+part of 'employee_list_bloc.dart';
 
 sealed class EmployeeEvent extends Equatable {
   const EmployeeEvent();

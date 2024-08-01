@@ -1,4 +1,4 @@
-part of 'employee_bloc.dart';
+part of 'employee_list_bloc.dart';
 
 final class EmployeeState extends Equatable {
   const EmployeeState();
@@ -16,17 +16,17 @@ final class EmployeeList extends EmployeeState {
   List<Object> get props => [employees];
 }
 
-final class LoadingState extends EmployeeState {
-  const LoadingState();
+final class EmployeeListLoadingState extends EmployeeState {
+  const EmployeeListLoadingState();
 
   @override
   List<Object> get props => [];
 }
 
-final class ErrorState extends EmployeeState {
+final class EmployeeListErrorState extends EmployeeState {
   final Failure failure;
 
-  const ErrorState(this.failure);
+  const EmployeeListErrorState(this.failure);
 
   @override
   List<Object> get props => [failure];

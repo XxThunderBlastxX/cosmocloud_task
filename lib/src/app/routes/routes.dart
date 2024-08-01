@@ -1,3 +1,4 @@
+import 'package:cosmocloud_task/src/feature/employee/presentation/screens/employee_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,6 +22,16 @@ class AppRouter {
           key: state.pageKey,
           child: const NewEmployeeScreen(),
         ),
+      ),
+      GoRoute(
+        path: "/employee/:id",
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return MaterialPage(
+            key: state.pageKey,
+            child: EmployeeDetailsScreen(id: id),
+          );
+        },
       ),
     ],
   );

@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../app/theme/theme.dart';
 import '../../../model/employee_model.dart';
-import '../../bloc/employee_bloc.dart';
+import '../../bloc/employee_list/employee_list_bloc.dart';
 import 'styled_text_form_field.dart';
 
 class AddEmployeeForm extends StatefulWidget {
@@ -54,7 +54,7 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
   }
 
   void onPressSubmit(BuildContext context) {
-    context.read<EmployeeBloc>().add(
+    context.read<EmployeeListBloc>().add(
           CreateEmployeeEvent(
             Employee(
               name: _nameController.text.trim(),

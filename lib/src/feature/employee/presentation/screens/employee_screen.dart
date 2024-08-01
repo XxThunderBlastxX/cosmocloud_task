@@ -1,9 +1,11 @@
+import 'package:cosmocloud_task/src/app/error/error.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../app/theme/theme.dart';
-import '../bloc/employee_bloc.dart';
+import '../bloc/employee_details/employee_details_bloc.dart';
+import '../bloc/employee_list/employee_list_bloc.dart';
 
 class EmployeeScreen extends StatelessWidget {
   const EmployeeScreen({super.key});
@@ -29,15 +31,13 @@ class EmployeeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: BlocConsumer<EmployeeBloc, EmployeeState>(
+      body: BlocConsumer<EmployeeListBloc, EmployeeState>(
         listener: (context, state) {
           switch (state) {
-            case ErrorState(failure: final failure):
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(failure.message),
-                  backgroundColor: Colors.red,
-                ),
+            case EmployeeListErrorState(failure: final failure):
+              context.errorBanner(
+                failure.message,
+                statusCode: failure.code,
               );
               break;
             default:
@@ -45,7 +45,7 @@ class EmployeeScreen extends StatelessWidget {
         },
         builder: (context, state) {
           switch (state) {
-            case LoadingState():
+            case EmployeeListLoadingState():
               return const Center(
                 child: CircularProgressIndicator(),
               );
@@ -64,10 +64,16 @@ class EmployeeScreen extends StatelessWidget {
                     itemBuilder: (context, idx) => ListTile(
                       title: Text(employees[idx].name),
                       subtitle: Text("ID: ${employees[idx].id}"),
+                      onTap: () {
+                        context
+                            .read<EmployeeDetailsBloc>()
+                            .add(GetEmployeeDetailsEvent(employees[idx].id!));
+                        context.push('/employee/${employees[idx].id}');
+                      },
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () => context
-                            .read<EmployeeBloc>()
+                            .read<EmployeeListBloc>()
                             .add(DeleteEmployeeEvent(employees[idx].id!)),
                       ),
                     ),
