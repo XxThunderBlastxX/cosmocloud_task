@@ -1,16 +1,55 @@
-# cosmocloud_task
+# 👨🏻‍💻CosmoCloud Task
 
-A new Flutter project.
+> This is a task given by CosmoCloud to create a Flutter app that fetches employees data from an
+> API and displays it in a list view.
 
-## Getting Started
+<hr/>
 
-This project is a starting point for a Flutter application.
+## 🛠️Tech Stack
 
-A few resources to get you started if this is your first Flutter project:
+- [Flutter](https://flutter.dev/)
+- [CosmoCloud API](https://cosmocloud.io/)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<hr/>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙️Intallation
+
+- Clone the repository
+
+```bash
+  git clone https://github.com/XxThunderBlastxX/cosmocloud_task.git
+```
+
+- Install the dependencies
+
+```bash
+  flutter pub get
+```
+
+- Create a `.env` file in the root directory and add all the required keys from the `.env.example`
+  file and fill with appropriate values.
+
+```bash
+  touch .env
+  cp .env.example .env
+```
+
+- Generate the required files
+
+```bash
+  dart run build_runner build
+```
+
+- Run the app
+
+```bash
+  flutter run -d <device>
+```
+
+> [!NOTE]
+> Best viewed on 📱mobile device.
+
+<hr/>
+
+## Built with ❤️ by [XxThunderBlastxX](https://github.com/XxThunderBlastxX)
+

@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'employee_model.g.dart';
 
+/// [Employee] is a model class that represents an employee.
 @JsonSerializable()
 final class Employee {
   @JsonKey(name: '_id', includeFromJson: true, includeToJson: false)

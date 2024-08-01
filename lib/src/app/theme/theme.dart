@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AppTheme {
+abstract class AppTheme {
   static Color primaryColor = const Color(0xFF1c63ed);
 
   static ThemeData theme = ThemeData(
@@ -13,9 +13,7 @@ class AppTheme {
             vertical: 6,
           ),
         ),
-        backgroundColor: WidgetStateProperty.all<Color>(
-          const Color(0xFF1c63ed),
-        ),
+        backgroundColor: WidgetStateProperty.all<Color>(primaryColor),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

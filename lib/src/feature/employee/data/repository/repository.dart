@@ -8,6 +8,7 @@ import '../../../../app/utils/utils.dart';
 import '../../model/employee_model.dart';
 import '../interface/interface.dart';
 
+/// [EmployeeRepository] is a class that implements [IEmployee] interface, used to interact with the Employee API.
 final class EmployeeRepository implements IEmployee {
   final Dio _dio;
   final StyledLog _log;

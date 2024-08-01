@@ -1,10 +1,11 @@
-import 'package:cosmocloud_task/src/app/utils/log.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
 import '../env/env.dart';
+import '../utils/utils.dart';
 
+/// [service] is an instance of [GetIt] to get singletons of services.
 final service = GetIt.instance;
 
 void serviceLocator() {
