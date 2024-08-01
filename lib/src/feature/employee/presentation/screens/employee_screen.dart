@@ -10,6 +10,15 @@ import '../bloc/employee_list/employee_list_bloc.dart';
 class EmployeeScreen extends StatelessWidget {
   const EmployeeScreen({super.key});
 
+  void onTapEmployee(BuildContext context, String id) {
+    context.read<EmployeeDetailsBloc>().add(GetEmployeeDetailsEvent(id));
+    context.push('/employee/$id');
+  }
+
+  void onTapDelete(BuildContext context, String id) {
+    context.read<EmployeeListBloc>().add(DeleteEmployeeEvent(id));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,17 +82,11 @@ class EmployeeScreen extends StatelessWidget {
                         "ID: ${employees[idx].id}",
                         style: AppTheme.theme.textTheme.labelSmall,
                       ),
-                      onTap: () {
-                        context
-                            .read<EmployeeDetailsBloc>()
-                            .add(GetEmployeeDetailsEvent(employees[idx].id!));
-                        context.push('/employee/${employees[idx].id}');
-                      },
+                      onTap: () => onTapEmployee(context, employees[idx].id!),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
-                        onPressed: () => context
-                            .read<EmployeeListBloc>()
-                            .add(DeleteEmployeeEvent(employees[idx].id!)),
+                        onPressed: () =>
+                            onTapDelete(context, employees[idx].id!),
                       ),
                     ),
                   ),
