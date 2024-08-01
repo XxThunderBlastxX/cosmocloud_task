@@ -1,8 +1,8 @@
-import 'package:cosmocloud_task/src/app/common/widgets/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../app/common/widgets/styled_divider.dart';
 import '../../../../../app/theme/theme.dart';
 import '../../../model/employee_model.dart';
 import '../../bloc/employee_list/employee_list_bloc.dart';
@@ -118,7 +118,7 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
             'Contact',
             style: AppTheme.theme.textTheme.labelLarge,
           ),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 18.0),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
@@ -132,22 +132,35 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
                 },
                 label: Text(
                   'Contact Method',
-                  style: AppTheme.theme.textTheme.labelLarge,
+                  style: AppTheme.theme.textTheme.labelMedium,
                 ),
-                dropdownMenuEntries: const [
+                dropdownMenuEntries: [
                   DropdownMenuEntry(
                     value: ContactMethodType.email,
                     label: 'Email',
+                    labelWidget: Text(
+                      'Email',
+                      style: AppTheme.theme.textTheme.labelMedium!.copyWith(
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
                   DropdownMenuEntry(
                     value: ContactMethodType.phone,
                     label: 'Phone',
+                    labelWidget: Text(
+                      'Phone',
+                      style: AppTheme.theme.textTheme.labelMedium!.copyWith(
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
                 ],
               ),
               const SizedBox(width: 16),
               Expanded(
                 child: StyledTextFormField(
+                  showLabel: false,
                   fieldName: 'Contact',
                   hintText: _contactMethod == ContactMethodType.email
                       ? 'Enter your email'
@@ -163,8 +176,9 @@ class _AddEmployeeFormState extends State<AddEmployeeForm> {
               onPressed: () => onPressSubmit(context),
               child: Text(
                 'Submit',
-                style: AppTheme.theme.textTheme.displayMedium!.copyWith(
+                style: AppTheme.theme.textTheme.labelLarge!.copyWith(
                   color: Colors.white,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),

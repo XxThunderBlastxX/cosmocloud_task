@@ -1,9 +1,9 @@
-import 'package:cosmocloud_task/src/app/common/widgets/styled_divider.dart';
 import 'package:cosmocloud_task/src/app/error/error.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../app/common/widgets/styled_divider.dart';
 import '../../../../app/theme/theme.dart';
 import '../bloc/employee_details/employee_details_bloc.dart';
 

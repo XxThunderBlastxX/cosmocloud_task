@@ -9,9 +9,12 @@ class StyledTextFormField extends StatelessWidget {
 
   final TextEditingController? controller;
 
+  final bool showLabel;
+
   const StyledTextFormField({
     super.key,
     this.controller,
+    this.showLabel = true,
     required this.fieldName,
     required this.hintText,
   });
@@ -22,9 +25,12 @@ class StyledTextFormField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          fieldName,
-          style: AppTheme.theme.textTheme.labelMedium,
+        Visibility(
+          visible: showLabel,
+          child: Text(
+            fieldName,
+            style: AppTheme.theme.textTheme.labelMedium,
+          ),
         ),
         TextFormField(
           controller: controller,
